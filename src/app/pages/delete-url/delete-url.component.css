@@ -1,0 +1,140 @@
+/* Full page gradient background */
+.page-wrapper {
+  display: block;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #cc7cbc, #7979db);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+/* Card container */
+.delete-card {
+  width: 100%;
+  max-width: 450px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.1); /* glass effect */
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: fadeIn 0.7s ease;
+}
+
+/* Title */
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* Input fields */
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  outline: none;
+  color: #0f0101;
+  transition: all 0.3s;
+}
+
+input:focus {
+  border-color: #7979db;
+  box-shadow: 0 0 5px rgba(121, 121, 219, 0.5);
+}
+
+input.invalid {
+  border-color: #ff7675;
+}
+
+/* Submit Button */
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background: #dc3545;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 0.5rem;
+}
+
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Success message with copy option */
+.success {
+  margin-top: 1rem;
+  color: #00ff99;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.copy-btn {
+  padding: 0.3rem 0.6rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.copied-msg {
+  color: #00ff99;
+  font-weight: bold;
+}
+
+/* Error message */
+.error {
+  margin-top: 1rem;
+  color: #ff7675;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .delete-card {
+    padding: 2rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}

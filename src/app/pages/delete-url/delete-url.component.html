@@ -1,0 +1,32 @@
+<div class="page-wrapper">
+  <div class="delete-card">
+    <h2>🗑️ Delete Short URL</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input
+          id="shortUrl"
+          type="text"
+          formControlName="shortUrl"
+          placeholder="Enter short URL or code..."
+          [class.invalid]="f['shortUrl'].touched && f['shortUrl'].invalid"
+        />
+        <div class="error" *ngIf="f['shortUrl'].touched && f['shortUrl'].invalid">
+          Short URL is required.
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="form.invalid || loading">
+        {{ loading ? 'Deleting...' : 'Delete URL' }}
+      </button>
+    </form>
+
+    <div *ngIf="success" class="success">
+      {{ success }}
+      <button class="copy-btn" (click)="copyToClipboard(success)">Copy</button>
+      <span *ngIf="copied" class="copied-msg">✔ Copied!</span>
+    </div>
+
+    <div *ngIf="error" class="error">{{ error }}</div>
+  </div>
+</div>

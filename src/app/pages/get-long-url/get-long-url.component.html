@@ -1,0 +1,32 @@
+<div class="long-url-page">
+  <div class="container">
+    <h2>🔍 Find Original URL</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label for="shortUrl">Enter Short URL / Code:</label>
+      <input
+        id="shortUrl"
+        type="text"
+        formControlName="shortUrl"
+        placeholder="Enter short URL or code..."
+      />
+
+      <div class="error" *ngIf="f['shortUrl'].touched && f['shortUrl'].invalid">
+        Short URL is required.
+      </div>
+
+      <button type="submit" [disabled]="form.invalid || loading">
+        {{ loading ? 'Fetching...' : 'Get Original URL' }}
+      </button>
+    </form>
+
+    <div *ngIf="longUrl" class="result-card">
+      <strong>Original URL:</strong>
+      <a [href]="longUrl" target="_blank">{{ longUrl }}</a>
+      <button class="copy-btn" (click)="copyToClipboard()">📋 Copy</button>
+      <span *ngIf="copied" class="copied-msg">✔ Copied!</span>
+    </div>
+
+    <div *ngIf="error" class="error">{{ error }}</div>
+  </div>
+</div>

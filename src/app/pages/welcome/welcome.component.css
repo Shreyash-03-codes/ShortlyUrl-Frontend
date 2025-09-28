@@ -1,0 +1,91 @@
+.welcome-container {
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #cc7cbc, #7979db);
+  color: #fff;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-title {
+  font-weight: 700;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+}
+
+.hero-text {
+  font-size: 1.25rem;
+  max-width: 650px;
+  margin: 0 auto 30px auto;
+}
+
+.features h2 {
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.feature-card {
+  background-color: rgba(255, 255, 255, 0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  background-color: rgba(255,255,255,0.25);
+}
+
+.feature-card h5 {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.cta h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+.btn-primary {
+  background: #6a11cb;
+  border: none;
+}
+
+.btn-outline-light {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+/* Animations */
+.animate-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+}

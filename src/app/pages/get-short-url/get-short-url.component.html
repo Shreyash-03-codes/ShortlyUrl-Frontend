@@ -1,0 +1,33 @@
+<div class="short-url-page">
+  <div class="container">
+    <h2>🔗 Generate Short URL</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label for="longUrl">Enter Long URL:</label>
+      <input
+        id="longUrl"
+        type="text"
+        formControlName="longUrl"
+        placeholder="https://example.com/your/long/url"
+      />
+
+      <div class="error" *ngIf="f['longUrl'].touched && f['longUrl'].invalid">
+        <small *ngIf="f['longUrl'].errors?.['required']">Long URL is required.</small>
+        <small *ngIf="f['longUrl'].errors?.['pattern']">Enter a valid URL (http/https).</small>
+      </div>
+
+      <button type="submit" [disabled]="form.invalid || loading">
+        {{ loading ? 'Generating...' : 'Get Short URL' }}
+      </button>
+    </form>
+
+    <div *ngIf="shortUrl" class="result-card">
+      <strong>Short URL:</strong>
+      <a [href]="shortUrl" target="_blank">{{ shortUrl }}</a>
+      <button class="copy-btn" (click)="copyToClipboard()">📋 Copy</button>
+      <span *ngIf="copied" class="copied-msg">✔ Copied!</span>
+    </div>
+
+    <div *ngIf="error" class="error">{{ error }}</div>
+  </div>
+</div>

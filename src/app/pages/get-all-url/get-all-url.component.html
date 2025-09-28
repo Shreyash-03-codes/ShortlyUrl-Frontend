@@ -1,0 +1,40 @@
+<div class="url-container">
+  <h2>All URLs</h2>
+
+  <!-- Loading state -->
+  <div *ngIf="loading" class="loading">Loading URLs...</div>
+
+  <!-- Error state -->
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <!-- URL List -->
+  <table *ngIf="!loading && urls.length > 0" class="url-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Short URL</th>
+        <th>Long URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let url of urls; let i = index">
+        <td>{{ i + 1 }}</td>
+        
+        <!-- Short URL with copy button -->
+        <td>
+          <a [href]="url.shortUrl" target="_blank">{{ url.shortUrl }}</a>
+          <button class="copy-btn" (click)="copyToClipboard(url.shortUrl)">Copy</button>
+        </td>
+
+        <!-- Long URL with copy button -->
+        <td>
+          <a [href]="url.longUrl" target="_blank">{{ url.longUrl }}</a>
+          <button class="copy-btn" (click)="copyToClipboard(url.longUrl)">Copy</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- No URLs -->
+  <div *ngIf="!loading && urls.length === 0">No URLs found.</div>
+</div>
