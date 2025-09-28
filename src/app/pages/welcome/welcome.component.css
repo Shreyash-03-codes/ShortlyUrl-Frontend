@@ -30,6 +30,7 @@
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 .feature-card:hover {
@@ -73,7 +74,6 @@
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s forwards;
-  animation-delay: 0.2s;
 }
 
 @keyframes fadeInUp {
@@ -84,8 +84,43 @@
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-text {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2rem;
+  }
+  .hero-text {
+    font-size: 1rem;
+  }
+  .feature-card {
+    padding: 20px;
+  }
+  .btn-lg {
+    padding: 10px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  .hero-text {
+    font-size: 0.95rem;
+  }
+  .feature-card p {
+    font-size: 0.85rem;
+  }
+  .btn-lg {
+    width: 100%;
+    padding: 10px 0;
   }
 }

@@ -1,4 +1,3 @@
-/* Full page gradient background */
 :host {
   display: block;
   min-height: 100vh;
@@ -9,11 +8,10 @@
   box-sizing: border-box;
 }
 
-/* Container for table */
 .url-container {
   max-width: 900px;
   margin: auto;
-  background: rgba(255, 255, 255, 0.1); /* glass effect */
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 2rem;
@@ -29,10 +27,16 @@ h2 {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
+/* Table Wrapper for horizontal scroll */
+.table-wrapper {
+  overflow-x: auto;
+}
+
 /* Table styling */
 .url-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 600px; /* Ensures it scrolls on small screens */
 }
 
 .url-table th, .url-table td {
@@ -70,13 +74,7 @@ h2 {
   margin: 1rem 0;
 }
 
-/* Responsive table */
-@media (max-width: 768px) {
-  .url-table th, .url-table td {
-    padding: 0.5rem;
-  }
-}
-
+/* Copy button */
 .copy-btn {
   margin-left: 0.5rem;
   padding: 0.3rem 0.6rem;
@@ -91,4 +89,34 @@ h2 {
 
 .copy-btn:hover {
   background: rgba(255,255,255,0.35);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .url-table th, .url-table td {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  .copy-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .url-container {
+    padding: 1rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .url-table th, .url-table td {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  .copy-btn {
+    margin-left: 0.25rem;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+  }
 }
